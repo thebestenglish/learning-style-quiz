@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Learning Style Quiz</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #000;
+      color: #eee;
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 20px;
+      box-shadow: 0 0 20px rgba(255, 0, 255, 0.2);
+      border-radius: 10px;
+    }
+    h1 {
+      text-align: center;
+      color: #FF00FF;
+    }
+    p.instructions {
+      text-align: center;
+      font-size: 1.1em;
+      color: #ccc;
+      margin-bottom: 30px;
+    }
+    .activity {
+      margin: 15px 0;
+      padding: 10px;
+      background: #111;
+      border-left: 5px solid #FF00FF;
+      border-radius: 5px;
+    }
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 600;
+    }
+    input[type=range] {
+      width: 100%;
+      accent-color: #FF00FF;
+    }
+    .value-display {
+      text-align: right;
+      color: #ccc;
+      font-size: 0.9em;
+      margin-top: 5px;
+    }
+    button {
+      display: block;
+      margin: 30px auto 10px;
+      padding: 10px 25px;
+      font-size: 1em;
+      background-color: #FF00FF;
+      color: #000;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    button:hover {
+      background-color: #e754e7;
+    }
+    #result {
+      text-align: center;
+      font-weight: bold;
+      margin-top: 30px;
+      font-size: 1.4em;
+      color: #FF00FF;
+    }
+  </style>
+</head>
+<body>
+  <h1>Learning Style Quiz</h1>
+  <p class="instructions">
+    How much do you like doing these activities? Use the sliders from 1 (not at all) to 10 (love it!)
+  </p>
+
+  <form id="quizForm">
+    <!-- Each activity below has a slider and a value display -->
+    <div class="activity">
+      <label>Drawing, painting, or designing</label>
+      <input type="range" name="visual" min="1" max="10" value="1" oninput="this.nextElementSibling.textContent = this.value">
+      <div class="value-display">1</div>
+    </div>
+    <div class="activity">
+      <label>Watching videos or animations</label>
+      <input type="range" name="visual" min="1" max="10" value="1" oninput="this.nextElementSibling.textContent = this.value">
+      <div class="value-display">1</div>
+    </div>
+    <div class="activity">
+      <label>Reading comics, books, or graphic novels</label>
+      <input type="range" name="visual" min="1" max="10" value="1" oninput="this.nextElementSibling.textContent = this.value">
+      <div class="value-display">1</div>
+    </div>
+    <div class="activity">
+      <label>Solving puzzles, mazes, or logic games</label>
+      <input type="range" name="logical" min="1" max="10" value="1" oninput="this.nextElementSibling.textContent = this.value">
+      <div class="value-display">1</div>
+    </div>
+    <div class="activity">
+      <label>Taking or editing photos/videos</label>
+      <input type="range" name="visual" min="1" max="10" value="1" oninput="this.nextElementSibling.textContent = this.value">
+      <div class="value-display">1</div>
+    </div>
+    <div class="activity">
+      <label>Singing, humming, or making up songs</label>
+      <input type="range" name="auditory" min="1" max="10" value="1" oninput="this.nextElementSibling.textContent = this.value">
+      <div class="value-display">1</div>
+    </div>
+    <div class="activity">
+      <label>Listening to music or audiobooks</label>
+      <input type="range" name="auditory" min="1" max="10" value="1" oninput="this.nextElementSibling.textContent = this.value">
+      <div class="value-display">1</div>
+    </div>
+    <div class="activity">
+      <label>Playing musical instruments</label>
+      <input type="range" name="auditory" min="1" max="10" value="1" oninput="this.nextElementSibling.textContent = this.value">
+      <div class="value-display">1</div>
+    </div>
+    <div class="activity">
+      <label>Telling or writing stories</label>
+      <input type="range" name="verbal" min="1" max="10" value="1" oninput="this.nextElementSibling.textContent = this.value">
+      <div class="value-display">1</div>
+    </div>
+    <div class="activity">
+      <label>Talking about your favorite movies or characters</label>
+      <input type="range" name="verbal" min="1" max="10" value="1" oninput="this.nextElementSibling.textContent = this.value">
+      <div class="value-display">1</div>
+    </div>
+    <div class="activity">
+      <label>Building with blocks, Lego, or 3D puzzles</label>
+      <input type="range" name="kinesthetic" min="1" max="10" value="1" oninput="this.nextElementSibling.textContent = this.value">
+      <div class="value-display">1</div>
+    </div>
+    <div class="activity">
+      <label>Doing experiments or hands-on projects</label>
+      <input type="range" name="logical" min="1" max="10" value="1" oninput="this.nextElementSibling.textContent = this.value">
+      <div class="value-display">1</div>
+    </div>
+    <div class="activity">
+      <label>Playing sports or outdoor games</label>
+      <input type="range" name="kinesthetic" min="1" max="10" value="1" oninput="this.nextElementSibling.textContent = this.value">
+      <div class="value-display">1</div>
+    </div>
+    <div class="activity">
+      <label>Dancing or practicing choreography</label>
+      <input type="range" name="kinesthetic" min="1" max="10" value="1" oninput="this.nextElementSibling.textContent = this.value">
+      <div class="value-display">1</div>
+    </div>
+    <div class="activity">
+      <label>Acting in plays, skits, or TikToks</label>
+      <input type="range" name="kinesthetic" min="1" max="10" value="1" oninput="this.nextElementSibling.textContent = this.value">
+      <div class="value-display">1</div>
+    </div>
+    <div class="activity">
+      <label>Cooking, baking, or helping in the kitchen</label>
+      <input type="range" name="kinesthetic" min="1" max="10" value="1" oninput="this.nextElementSibling.textContent = this.value">
+      <div class="value-display">1</div>
+    </div>
+    <div class="activity">
+      <label>Playing video games that require movement or coordination</label>
+      <input type="range" name="kinesthetic" min="1" max="10" value="1" oninput="this.nextElementSibling.textContent = this.value">
+      <div class="value-display">1</div>
+    </div>
+
+    <button type="button" onclick="calculateResult()">See My Learning Style</button>
+  </form>
+
+  <div id="result"></div>
+
+  <script>
+    function calculateResult() {
+      const form = document.forms["quizForm"];
+      const scores = { visual: 0, auditory: 0, verbal: 0, logical: 0, kinesthetic: 0 };
+
+      let allDefault = true;
+
+      for (const input of form.elements) {
+        if (input.type === "range") {
+          const value = parseInt(input.value);
+          scores[input.name] += value;
+          if (value !== 1) {
+            allDefault = false;
+          }
+        }
+      }
+
+      const resultDiv = document.getElementById("result");
+      resultDiv.innerHTML = "";
+
+      if (allDefault) {
+        resultDiv.innerText = "❗Please move at least one slider to get your result.";
+        return;
+      }
+
+      let maxScore = -1;
+      let bestStyle = "";
+      for (const [style, score] of Object.entries(scores)) {
+        if (score > maxScore) {
+          maxScore = score;
+          bestStyle = style;
+        }
+      }
+
+      const styleNames = {
+        visual: "Visual/Spatial",
+        auditory: "Auditory/Musical",
+        verbal: "Verbal/Linguistic",
+        logical: "Logical/Mathematical",
+        kinesthetic: "Bodily/Kinesthetic"
+      };
+
+      const finalResult = "🌟 Your dominant learning style is: " + styleNames[bestStyle] + " 🌟";
+
+      resultDiv.innerHTML = `
+        <button onclick="shareQuiz('${finalResult}')">SHARE THE QUIZ</button>
+        <button onclick="visitPreply('${finalResult}')">Visit my Preply profile and come back for your result </button>
+      `;
+    }
+
+    function shareQuiz(resultText) {
+      alert("Pretend this is a share dialog! 🎉\n(You shared the quiz!)");
+      document.getElementById("result").innerHTML += `<p>${resultText}</p>`;
+    }
+
+    function visitPreply(resultText) {
+      window.open("https://preply.com/en/tutor/6275514", "_blank");
+      document.getElementById("result").innerHTML += `<p>${resultText}</p>`;
+    }
+  </script>
+</body>
+</html>
