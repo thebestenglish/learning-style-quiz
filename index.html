@@ -214,21 +214,29 @@
 
       const finalResult = "🌟 Your dominant learning style is: " + styleNames[bestStyle] + " 🌟";
 
-      resultDiv.innerHTML = `
-        <button onclick="shareQuiz('${finalResult}')">SHARE THE QUIZ</button>
-        <button onclick="visitPreply('${finalResult}')">Visit my Preply profile and come back for your result </button>
-      `;
-    }
+      function shareQuiz(result) {
+  const shareUrl = `https://thebestenglish.github.io/learning-style-quiz/?result=${encodeURIComponent(result)}`;
+  if (navigator.share) {
+    navigator.share({
+      title: 'My Quiz Result',
+      text: `Check out my learning style quiz result: ${result}`,
+      url: shareUrl,
+    })
+    .then(() => console.log('Shared successfully'))
+    .catch((error) => console.error('Error sharing:', error));
+  } else {
+    navigator.clipboard.writeText(shareUrl).then(() => {
+      alert('Link copied to clipboard: ' + shareUrl);
+    });
+  }
+}
 
-    function shareQuiz(resultText) {
-      alert("Pretend this is a share dialog! 🎉\n(You shared the quiz!)");
-      document.getElementById("result").innerHTML += `<p>${resultText}</p>`;
-    }
-
-    function visitPreply(resultText) {
-      window.open("https://preply.com/en/tutor/6275514", "_blank");
-      document.getElementById("result").innerHTML += `<p>${resultText}</p>`;
-    }
+// Your resultDiv snippet:
+resultDiv.innerHTML = `
+  <button onclick="shareQuiz('${finalResult}')">SHARE THE QUIZ</button>
+  <button onclick="visitPreply('${finalResult}')">Visit my Preply profile and come back for your result</button>
+`;
   </script>
 </body>
 </html>
+
